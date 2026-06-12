@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高單價壓力襪在 Amazon 上架的可行性分析｜Amazon Go-to-Market Portfolio</title>
+  <style>
+    :root{
+      --paper:#fffaf3; --white:#fff; --ink:#2a2520; --muted:#756b60; --line:#e5d7c6;
+      --brown:#805436; --brown-dark:#51331f; --gold:#b98443; --green:#2f704f;
+      --red:#a24a3f; --blue:#5d8fc3; --orange:#e89342; --purple:#8d72c4;
+      --shadow:0 18px 50px rgba(86,61,38,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;background:linear-gradient(180deg,#fbf7ef,#f1e7db);color:var(--ink);line-height:1.75}
+    .page{width:min(1120px,calc(100% - 40px));margin:0 auto;padding:42px 0 80px}
+    .hero{background:linear-gradient(135deg,#32241d,#74492f 58%,#b88347);color:#fff;border-radius:32px;padding:52px;box-shadow:var(--shadow);overflow:hidden;position:relative}
+    .hero:after{content:"";position:absolute;right:-140px;top:-160px;width:430px;height:430px;border-radius:50%;background:rgba(255,255,255,.13)}
+    .eyebrow{position:relative;z-index:1;font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.84;font-weight:800}
+    h1{position:relative;z-index:1;font-size:clamp(34px,5vw,56px);line-height:1.12;margin:14px 0 20px;letter-spacing:-.04em}
+    .subtitle{position:relative;z-index:1;font-size:20px;max-width:930px;opacity:.94;margin:0}
+    .hero-grid{margin-top:30px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative;z-index:1}
+    .hero-card{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:22px;padding:20px;backdrop-filter:blur(8px)}
+    .hero-card .num{font-size:30px;font-weight:850;line-height:1.1}
+    .hero-card .label{font-size:14px;opacity:.86;margin-top:7px}
+    section{margin-top:28px;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:34px;box-shadow:0 10px 30px rgba(86,61,38,.06)}
+    section.white{background:var(--white)}
+    .head{display:flex;gap:18px;align-items:flex-start;margin-bottom:20px}
+    .num-badge{width:44px;height:44px;border-radius:16px;background:#efe0cf;color:var(--brown-dark);display:grid;place-items:center;font-weight:850;flex:0 0 auto}
+    h2{font-size:28px;line-height:1.25;margin:0;letter-spacing:-.02em}
+    h3{font-size:20px;margin:26px 0 10px}
+    p{margin:10px 0}.lead{font-size:18px;color:#4d4037}.muted{color:var(--muted)}.positive{color:var(--green)}.negative{color:var(--red)}
+    .toc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+    .toc-card{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:4px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;text-decoration:none;color:var(--ink);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+    .toc-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(86,61,38,.10);border-color:#d1b89c}
+    .toc-num{grid-row:1 / span 2;width:40px;height:40px;border-radius:14px;display:grid;place-items:center;background:#efe0cf;color:var(--brown-dark);font-weight:850;font-size:13px}
+    .toc-card strong{font-size:17px;color:var(--brown-dark);line-height:1.3}.toc-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px}.metric-title{font-size:14px;font-weight:750;color:var(--muted)}.metric-value{font-size:34px;font-weight:850;line-height:1.1;margin-top:8px}
+    .callout{background:#fbefe0;border-left:6px solid var(--gold);border-radius:18px;padding:20px 22px;margin:22px 0}
+    .bar-list{display:grid;gap:16px;margin-top:20px}.bar-row{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}.bar-top{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-bottom:10px;font-weight:800}.bar-name{color:var(--brown-dark)}.bar-value{white-space:nowrap}
+    .bar-track{height:24px;border-radius:999px;background:#f1e8de;overflow:hidden;position:relative}.bar-fill{height:100%;border-radius:999px;background:var(--green);display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:#fff;font-size:12px;font-weight:850;min-width:32px}.bar-fill.blue{background:var(--blue)}.bar-fill.orange{background:var(--orange)}.bar-fill.red{background:var(--red)}.bar-fill.purple{background:var(--purple)}.bar-note{color:var(--muted);font-size:13px;margin-top:8px}
+    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.pill{background:#f0e2d1;color:var(--brown-dark);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:750}
+    .decision-box{background:#2f261f;color:#fff;border-radius:24px;padding:28px;margin-top:18px}.decision-box strong{color:#ffdca8}
+    table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;margin-top:16px}th,td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f3e4d2;color:var(--brown-dark);font-weight:850}tr:last-child td{border-bottom:0}
+    .quote{font-size:22px;font-weight:850;line-height:1.45;color:var(--brown-dark);background:#fff7ed;border:1px solid #efdac3;border-radius:22px;padding:24px;margin-top:20px}.footer{text-align:center;color:var(--muted);font-size:13px;margin-top:36px}
+
+    .search-chart-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      margin-top:22px;
+      box-shadow:0 8px 24px rgba(86,61,38,.06);
+    }
+    .chart-headline{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:flex-start;
+      margin-bottom:16px;
+    }
+    .chart-headline h3{
+      margin:0 0 6px;
+      color:var(--brown-dark);
+      font-size:22px;
+    }
+    .chart-headline p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .chart-kpi{
+      min-width:150px;
+      border-radius:18px;
+      background:#f3eadf;
+      padding:14px 16px;
+      text-align:right;
+      color:var(--brown-dark);
+    }
+    .chart-kpi span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:800;
+    }
+    .chart-kpi strong{
+      display:block;
+      font-size:28px;
+      line-height:1.1;
+      margin-top:4px;
+    }
+    .chart-kpi small{
+      color:var(--muted);
+      font-weight:750;
+    }
+    .search-chart{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .chart-grid{
+      stroke:#e8edf4;
+      stroke-width:1.4;
+    }
+    .chart-vgrid{
+      stroke:#eef2f6;
+      stroke-width:1;
+    }
+    .axis-label{
+      fill:#687383;
+      font-size:14px;
+      font-weight:650;
+    }
+    .axis-title{
+      fill:#687383;
+      font-size:15px;
+      font-weight:750;
+    }
+    .trend-arrow{
+      stroke:#e5252d;
+      stroke-width:5;
+      opacity:.95;
+    }
+    .tooltip-date{
+      fill:#42526a;
+      font-size:14px;
+      font-weight:800;
+    }
+    .tooltip-text{
+      fill:#2d3a4d;
+      font-size:13px;
+      font-weight:750;
+    }
+    .legend-text{
+      fill:#3b4656;
+      font-size:14px;
+      font-weight:800;
+    }
+    .chart-insight{
+      margin-top:14px;
+      background:#fbefe0;
+      border-left:6px solid var(--gold);
+      border-radius:16px;
+      padding:14px 16px;
+      color:#4d4037;
+    }
+
+
+    .brand-share-block{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      margin-top:18px;
+    }
+    .brand-share-head{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:flex-start;
+      margin-bottom:14px;
+    }
+    .brand-share-head h3{
+      margin:0 0 6px;
+      color:var(--brown-dark);
+    }
+    .brand-total{
+      min-width:128px;
+      background:#f3eadf;
+      border-radius:18px;
+      padding:14px 16px;
+      text-align:right;
+      color:var(--brown-dark);
+    }
+    .brand-total span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:850;
+    }
+    .brand-total strong{
+      display:block;
+      font-size:28px;
+      line-height:1.1;
+      margin-top:4px;
+    }
+    .brand-table{
+      margin-top:0;
+      font-size:14px;
+    }
+    .brand-table th:first-child,
+    .brand-table td:first-child{
+      width:72px;
+      white-space:nowrap;
+    }
+    .brand-table th:nth-child(3),
+    .brand-table td:nth-child(3){
+      width:120px;
+      text-align:right;
+      white-space:nowrap;
+      font-weight:800;
+    }
+    .brand-table .top-five td{
+      background:#fff7ed;
+    }
+
+
+    .share-overview{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:18px;
+      margin:18px 0;
+      align-items:stretch;
+    }
+    .share-summary{
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:14px;
+    }
+    .share-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px 20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .share-box span{
+      color:var(--muted);
+      font-size:13px;
+      font-weight:850;
+      letter-spacing:.02em;
+    }
+    .share-box strong{
+      font-size:34px;
+      line-height:1.05;
+      color:var(--brown-dark);
+      margin-top:6px;
+    }
+    .share-stack-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+    }
+    .share-stack-head h3{
+      margin:0 0 6px;
+      color:var(--brown-dark);
+    }
+    .share-stack-head p{
+      margin:0 0 16px;
+    }
+    .share-stack{
+      display:flex;
+      width:100%;
+      min-height:48px;
+      border-radius:999px;
+      overflow:hidden;
+      background:#ece2d7;
+    }
+    .share-seg{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:14px;
+      font-weight:850;
+      white-space:nowrap;
+      padding:0 8px;
+    }
+    .share-seg.top5{background:#2f704f;}
+    .share-seg.top20{background:#e89342;}
+    .share-seg.others{background:#8e7d6f;}
+    .share-legend{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:750;
+    }
+    .swatch{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      display:inline-block;
+      margin-right:6px;
+      vertical-align:-1px;
+    }
+    .swatch.top5{background:#2f704f;}
+    .swatch.top20{background:#e89342;}
+    .swatch.others{background:#8e7d6f;}
+
+    .compact-bars{
+      grid-template-columns:1fr 1fr;
+      margin-top:0;
+    }
+    .brand-total-stack{
+      display:grid;
+      gap:10px;
+    }
+    .brand-total.small strong{
+      font-size:24px;
+    }
+
+
+    .stack-pair{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin:18px 0;
+    }
+    .share-seg.age1{background:#6aa7d8;}
+    .share-seg.age2{background:#8ec07d;}
+    .share-seg.age3{background:#f3b562;color:#4a3727;}
+    .share-seg.age4{background:#d97757;}
+    .share-seg.country-cn{background:#2f704f;}
+    .share-seg.country-us{background:#5d8fc3;}
+    .share-seg.country-amz{background:#e89342;}
+    .share-seg.country-oth{background:#8e7d6f;}
+    .swatch.age1{background:#6aa7d8;}
+    .swatch.age2{background:#8ec07d;}
+    .swatch.age3{background:#f3b562;}
+    .swatch.age4{background:#d97757;}
+    .swatch.country-cn{background:#2f704f;}
+    .swatch.country-us{background:#5d8fc3;}
+    .swatch.country-amz{background:#e89342;}
+    .swatch.country-oth{background:#8e7d6f;}
+
+
+    .integrated-brand-block{
+      margin:18px 0;
+    }
+    .embedded-stack-card{
+      margin-top:16px;
+      margin-bottom:18px;
+      border:1px solid var(--line);
+      background:#fcfaf7;
+    }
+    .embedded-stack-card .share-stack-head h3{
+      font-size:18px;
+    }
+
+
+    .keyword-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:18px 0 20px;
+    }
+    .keyword-chip{
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      padding:8px 14px;
+      background:#f0e2d1;
+      color:var(--brown-dark);
+      font-size:13px;
+      font-weight:850;
+      letter-spacing:.02em;
+      border:1px solid #e1cdb7;
+    }
+    .keyword-chip.positive-chip{
+      background:#edf7f1;
+      color:#2f704f;
+      border-color:#c5dfce;
+    }
+
+
+    .price-chart-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      margin-top:18px;
+    }
+    .price-chart-head h3{
+      margin:0 0 6px;
+      color:var(--brown-dark);
+    }
+    .price-chart-head p{
+      margin:0 0 12px;
+    }
+    .price-bar-chart{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:26px;
+      align-items:end;
+      min-height:340px;
+      padding:20px 10px 8px;
+      margin-top:6px;
+      border-bottom:1px solid #eadfd2;
+      position:relative;
+    }
+    .price-bar-chart:before{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      top:20px;
+      bottom:42px;
+      background:
+        repeating-linear-gradient(
+          to top,
+          transparent 0,
+          transparent 61px,
+          rgba(141,114,89,.08) 61px,
+          rgba(141,114,89,.08) 62px
+        );
+      pointer-events:none;
+    }
+    .vbar-item{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    .vbar-wrap{
+      width:100%;
+      max-width:180px;
+      height:250px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+    }
+    .vbar{
+      width:72%;
+      min-height:28px;
+      border-radius:18px 18px 0 0;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      color:#fff;
+      font-weight:850;
+      font-size:15px;
+      padding-top:10px;
+      box-shadow:0 10px 18px rgba(0,0,0,.08);
+    }
+    .vbar span{
+      line-height:1;
+    }
+    .bar-low{background:#5d8fc3;}
+    .bar-mid{background:#e89342;}
+    .bar-high{background:#8d72c4;}
+    .vbar-label{
+      margin-top:12px;
+      font-weight:850;
+      color:var(--brown-dark);
+      font-size:18px;
+    }
+    .vbar-note{
+      color:var(--muted);
+      font-size:13px;
+      margin-top:2px;
+    }
+    .price-chart-insight{
+      margin-top:14px;
+      background:#fbefe0;
+      border-left:6px solid var(--gold);
+      border-radius:16px;
+      padding:14px 16px;
+      color:#4d4037;
+    }
+    .narrative-block{
+      margin-top:18px;
+      background:#fff7ed;
+      border:1px solid #efdac3;
+      border-radius:22px;
+      padding:22px;
+    }
+    .narrative-block h3{
+      margin:0 0 10px;
+      color:var(--brown-dark);
+    }
+    .narrative-block p{
+      margin:10px 0;
+      color:#4d4037;
+    }
+
+
+    .keyword-strategy-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin:18px 0;
+    }
+    .keyword-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+    }
+    .keyword-card.primary{
+      border:2px solid rgba(47,112,79,.24);
+      background:linear-gradient(180deg,#ffffff 0%,#f4fbf6 100%);
+    }
+    .keyword-table-block{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      margin-top:18px;
+    }
+    .keyword-table-block h3{
+      margin:0 0 6px;
+      color:var(--brown-dark);
+    }
+    .keyword-table{
+      margin-top:14px;
+      font-size:14px;
+    }
+    .keyword-table th:first-child,
+    .keyword-table td:first-child{
+      width:140px;
+      white-space:nowrap;
+      color:var(--brown-dark);
+      font-weight:850;
+      background:#fffaf3;
+    }
+    .keyword-table th:nth-child(3),
+    .keyword-table td:nth-child(3){
+      width:100px;
+      text-align:right;
+      white-space:nowrap;
+      font-weight:850;
+    }
+    .keyword-analysis-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:18px;
+    }
+    .keyword-insight{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+    }
+    .keyword-insight h3{
+      margin:0 0 10px;
+      color:var(--brown-dark);
+    }
+    .keyword-insight p{
+      color:#4d4037;
+    }
+    .keyword-insight.highlight{
+      background:#fff7ed;
+      border-color:#efdac3;
+    }
+
+
+    .mmhg-block{
+      display:grid;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:18px;
+      margin-top:18px;
+    }
+    .mmhg-copy,.mmhg-chart-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+    }
+    .mmhg-copy h3,.mmhg-chart-card h3{
+      margin:0 0 10px;
+      color:var(--brown-dark);
+    }
+    .mmhg-copy p{color:#4d4037}
+    .mmhg-bars{display:grid;gap:12px;margin-top:16px}
+    .mmhg-row{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center}
+    .mmhg-label{color:var(--brown-dark);font-weight:850;white-space:nowrap}
+    .mmhg-track{height:28px;background:#f1e8de;border-radius:999px;overflow:hidden}
+    .mmhg-fill{height:100%;border-radius:999px;background:var(--green);color:#fff;font-size:12px;font-weight:850;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;min-width:32px}
+    .mmhg-fill.secondary{background:var(--blue)}
+    .mmhg-fill.minor{background:#b98d67;justify-content:center;padding-right:0;min-width:34px}
+    .listing-rec{margin-top:18px}
+
+
+    .spec-strategy-block{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      margin-top:18px;
+    }
+    .spec-head h3{
+      margin:0 0 10px;
+      color:var(--brown-dark);
+    }
+    .spec-head p{
+      color:#4d4037;
+      margin-bottom:18px;
+    }
+    .spec-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    .spec-card{
+      background:#fffaf3;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px;
+    }
+    .spec-card h3{
+      margin:0 0 10px;
+      color:var(--brown-dark);
+    }
+    .spec-card p{
+      color:#4d4037;
+    }
+    .mmhg-chart-card.embedded{
+      margin-top:16px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+    .mmhg-chart-card h4,
+    .pair-card h4{
+      margin:0 0 8px;
+      color:var(--brown-dark);
+      font-size:17px;
+    }
+    .pair-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:16px;
+    }
+    .pair-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+    }
+    .pair-bars{
+      display:grid;
+      gap:10px;
+      margin-top:12px;
+    }
+    .pair-row{
+      display:grid;
+      grid-template-columns:56px 1fr;
+      gap:10px;
+      align-items:center;
+    }
+    .pair-label{
+      color:var(--brown-dark);
+      font-weight:850;
+      white-space:nowrap;
+      font-size:13px;
+    }
+    .pair-track{
+      height:24px;
+      background:#f1e8de;
+      border-radius:999px;
+      overflow:hidden;
+    }
+    .pair-fill{
+      height:100%;
+      border-radius:999px;
+      background:var(--green);
+      color:#fff;
+      font-size:12px;
+      font-weight:850;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      padding-right:8px;
+      min-width:32px;
+    }
+    .pair-fill.alt{
+      background:var(--blue);
+    }
+    .pair-fill.minor{
+      background:#b98d67;
+      justify-content:center;
+      padding-right:0;
+      min-width:34px;
+    }
+    .one-pair-stack{
+      display:flex;
+      height:38px;
+      border-radius:999px;
+      overflow:hidden;
+      background:#f1e8de;
+      margin-top:12px;
+    }
+    .one-pair-seg{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:13px;
+      font-weight:850;
+      white-space:nowrap;
+    }
+    .one-pair-seg.no-label{
+      background:var(--green);
+    }
+    .one-pair-seg.has-label{
+      background:var(--orange);
+    }
+    .spec-insight{
+      margin-top:14px;
+      background:#fbefe0;
+      border-left:5px solid var(--gold);
+      border-radius:14px;
+      padding:12px 14px;
+      color:#4d4037;
+      font-size:14px;
+    }
+
+    @media(max-width:860px){.price-bar-chart{grid-template-columns:1fr;min-height:auto;border-bottom:0;padding:12px 0}.price-bar-chart:before{display:none}.vbar-wrap{height:180px;max-width:100%}.vbar{width:120px}.narrative-block{padding:18px}..hero{padding:34px 26px}.share-overview,.compact-bars,.stack-pair{grid-template-columns:1fr}.share-summary{grid-template-rows:auto}.share-stack{min-height:42px}.share-seg{font-size:12px}.brand-share-head{display:block}.brand-total-stack{margin-top:12px}.brand-total{text-align:left}.chart-headline{display:block}.chart-kpi{text-align:left;margin-top:14px}.hero-grid,.grid-2,.grid-3,.grid-4,.toc-grid,.keyword-strategy-grid,.keyword-analysis-grid,.mmhg-block,.spec-grid{grid-template-columns:1fr}section{padding:26px 20px}.bar-top{display:block}.bar-value{display:block;margin-top:4px}}
+  </style>
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <div class="eyebrow">Portfolio Case｜Amazon Go-to-Market Analysis</div>
+    <h1>高單價壓力襪在 Amazon 上架的可行性分析</h1>
+    <p class="subtitle">本分析以定價 US$35 的日常型壓力襪為例，評估高單價商品是否能在低價帶為主的 Amazon 壓力襪市場中找到差異化切入點。報告以搜尋結果前 100 商品為資料來源，從市場需求、競爭者分布、價格帶、Listing 關鍵字與品類選擇切入，協助客戶理解其產品進入市場後將面對的價格競爭、設計溝通與轉化挑戰；最後再將數據洞察轉化為具體上架建議，包含 Listing 頁面應強調的產品特點、Title 應使用的核心詞、商品應選擇何種品類上架，以及初步成本與利潤空間估算。</p>
+    <div class="hero-grid">
+      <div class="hero-card"><div class="num">搜尋結果前 100</div><div>商品作為市場樣本</div></div>
+      <div class="hero-card"><div class="num">49%</div><div class="label">前 5 品牌合計營收占比</div></div>
+      <div class="hero-card"><div class="num">71%</div><div class="label">暢銷商品落在低價帶</div></div>
+      <div class="hero-card"><div class="num">策略建議</div><div class="label">不打價格戰，改走差異化定位</div></div>
+    </div>
+  </header>
+
+  <section class="white">
+    <div class="head"><div class="num-badge">目錄</div><div><h2>報告目錄</h2><p class="lead">這份作品集不是單純的壓力襪市場調查，而是展示如何完成 Amazon 新品上架前的商業決策分析。</p></div></div>
+    <div class="toc-grid">
+      <a class="toc-card" href="#question"><span class="toc-num">01</span><strong>Business Question</strong><p>高單價設計型壓力襪是否適合在 Amazon 上架？</p></a>
+      <a class="toc-card" href="#demand"><span class="toc-num">02</span><strong>市場需求</strong><p>搜尋熱度與 Top 100 營收顯示市場仍有需求。</p></a>
+      <a class="toc-card" href="#competition"><span class="toc-num">03</span><strong>競爭格局</strong><p>市場集中且價格競爭強，需避開低價戰。</p></a>
+      <a class="toc-card" href="#positioning"><span class="toc-num">04</span><strong>價格與定位</strong><p>高價產品需用設計、材質與品牌故事合理化價格。</p></a>
+      <a class="toc-card" href="#keywords"><span class="toc-num">05</span><strong>Listing 關鍵字策略</strong><p>拆解暢銷品標題，整理產品定義、功能、受眾與用途詞。</p></a>
+      <a class="toc-card" href="#category"><span class="toc-num">06</span><strong>品類選擇</strong><p>選擇市場規模較大、壟斷程度較低的主打品類。</p></a>
+      <a class="toc-card" href="#unit-economics"><span class="toc-num">07</span><strong>成本與利潤</strong><p>估算 Amazon 抽成、FBA、倉儲與淨利空間。</p></a>
+      <a class="toc-card" href="#recommendation"><span class="toc-num">08</span><strong>最終建議</strong><p>可以進入，但必須採差異化定位與精準 Listing 策略。</p></a>
+    </div>
+  </section>
+
+  <section id="question">
+    <div class="head"><div class="num-badge">01</div><div><h2>Business Question：高單價設計型壓力襪是否適合在 Amazon 上架？</h2><p class="lead">本專案先透過搜尋量趨勢與 Top 100 商品營收確認 Amazon 壓力襪市場仍具備穩定需求；接著進一步評估，在市場已充斥低價、同質化產品的情況下，一個高單價、設計導向的新品是否仍能找到差異化切入點。</p></div></div>
+    <div class="decision-box"><p><strong>分析目標：</strong>評估市場是否值得進入，並找出若要進入 Amazon，應該如何設計價格定位、Listing 關鍵字、主打品類與品牌溝通策略。</p></div>
+    <div class="grid-3" style="margin-top:18px;">
+      <div class="card"><div class="metric-title">市場層面</div><div class="metric-value">需求是否存在？</div><p class="muted">從搜尋量與 Top 100 商品營收判斷市場規模與需求趨勢。</p></div>
+      <div class="card"><div class="metric-title">競爭層面</div><div class="metric-value">如何避開價格戰？</div><p class="muted">分析品牌集中度、賣家年齡、賣家來源國與主流價格帶。</p></div>
+      <div class="card"><div class="metric-title">落地層面</div><div class="metric-value">如何上架？</div><p class="muted">整理關鍵字、品類選擇與成本結構，轉化成可執行策略。</p></div>
+    </div>
+  </section>
+
+  <section class="white" id="demand">
+    <div class="head"><div class="num-badge">02</div><div><h2>市場需求：搜尋熱度沒有下滑，市場仍具成長訊號</h2><p class="lead">本專案當時採用近一年的 Amazon 全站搜尋量資料，觀察關鍵字「compression socks」的市場需求變化。整體趨勢顯示，2024 年下半年曾出現一波高峰，之後搜尋量逐步回落；但在 2025 年 5–6 月明顯再次走升，且 6 月中已突破前一波高點，創下一年內新高。到 6/28 時，搜尋量仍維持在 134,478，顯示市場熱度並未消退。</p></div></div>
+    <div class="grid-3">
+      <div class="card"><div class="metric-title">Top 100 Parent Revenue</div><div class="metric-value">$9.05M</div><p class="muted">含商品頁面變體後的 Top 100 整體月營收規模，作為市場規模輔助參考。</p></div>
+      <div class="card"><div class="metric-title">Top 100 ASIN Revenue</div><div class="metric-value">$1.80M</div><p class="muted">以前 100 名主圖款式估算的月營收規模，作為市場規模輔助參考。</p></div>
+      <div class="card"><div class="metric-title">近期搜尋量</div><div class="metric-value positive">134K+</div><p class="muted">2025 年 6 月搜尋量創觀察期新高。</p></div>
+    </div>
+
+
+
+<div class="search-chart-card">
+  <div class="chart-headline">
+    <div>
+      <h3>Search Volume History：compression socks</h3>
+      <p>依照原始截圖重繪為完整一年視角；折線為依截圖走勢近似重繪，最後觀察點依 tooltip 顯示為 134,478。</p>
+    </div>
+    <div class="chart-kpi">
+      <span>2025/06/28</span>
+      <strong>134,478</strong>
+      <small>Search Volume</small>
+    </div>
+  </div>
+
+  <svg class="search-chart" viewBox="0 0 940 420" role="img" aria-label="compression socks search volume history">
+    <defs>
+      <linearGradient id="lineGradient" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0%" stop-color="#4e8fd4"/>
+        <stop offset="100%" stop-color="#1f6fc2"/>
+      </linearGradient>
+      <marker id="arrowHead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+        <path d="M0,0 L12,6 L0,12 Z" fill="#e53935"></path>
+      </marker>
+    </defs>
+
+    <rect x="0" y="0" width="940" height="420" rx="18" fill="#ffffff"/>
+    <line x1="78" y1="358.0" x2="914" y2="358.0" class="chart-grid"/><text x="62" y="363.0" text-anchor="end" class="axis-label">0</text><line x1="78" y1="311.7" x2="914" y2="311.7" class="chart-grid"/><text x="62" y="316.7" text-anchor="end" class="axis-label">25K</text><line x1="78" y1="265.4" x2="914" y2="265.4" class="chart-grid"/><text x="62" y="270.4" text-anchor="end" class="axis-label">50K</text><line x1="78" y1="219.1" x2="914" y2="219.1" class="chart-grid"/><text x="62" y="224.1" text-anchor="end" class="axis-label">75K</text><line x1="78" y1="172.9" x2="914" y2="172.9" class="chart-grid"/><text x="62" y="177.9" text-anchor="end" class="axis-label">100K</text><line x1="78" y1="126.6" x2="914" y2="126.6" class="chart-grid"/><text x="62" y="131.6" text-anchor="end" class="axis-label">125K</text><line x1="78" y1="80.3" x2="914" y2="80.3" class="chart-grid"/><text x="62" y="85.3" text-anchor="end" class="axis-label">150K</text><line x1="78" y1="34.0" x2="914" y2="34.0" class="chart-grid"/><text x="62" y="39.0" text-anchor="end" class="axis-label">175K</text>
+    <line x1="197.4" y1="34" x2="197.4" y2="358" class="chart-vgrid"/><text x="197.4" y="392" text-anchor="middle" class="axis-label">9/24</text><line x1="356.7" y1="34" x2="356.7" y2="358" class="chart-vgrid"/><text x="356.7" y="392" text-anchor="middle" class="axis-label">11/24</text><line x1="476.1" y1="34" x2="476.1" y2="358" class="chart-vgrid"/><text x="476.1" y="392" text-anchor="middle" class="axis-label">1/25</text><line x1="635.3" y1="34" x2="635.3" y2="358" class="chart-vgrid"/><text x="635.3" y="392" text-anchor="middle" class="axis-label">3/25</text><line x1="794.6" y1="34" x2="794.6" y2="358" class="chart-vgrid"/><text x="794.6" y="392" text-anchor="middle" class="axis-label">5/25</text><line x1="914.0" y1="34" x2="914.0" y2="358" class="chart-vgrid"/><text x="914.0" y="392" text-anchor="middle" class="axis-label">7/25</text>
+
+    <text x="26" y="196.0" transform="rotate(-90 26,196.0)" text-anchor="middle" class="axis-title">Search Volume</text>
+
+    <polyline points="78.0,187.7 117.8,185.8 157.6,156.2 197.4,167.3 237.2,102.5 277.0,187.7 316.9,121.0 356.7,200.6 396.5,167.3 436.3,124.7 476.1,237.7 515.9,209.9 555.7,202.5 595.5,211.7 635.3,180.3 675.1,184.0 715.0,176.6 754.8,184.0 794.6,169.2 834.4,121.0 874.2,87.7 914.0,109.0" fill="none" stroke="url(#lineGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="914.0" cy="109.0" r="6" fill="#1f6fc2" stroke="#fff" stroke-width="3"/>
+    <g class="tooltip" transform="translate(684.0,37.0)">
+      <rect width="210" height="58" rx="8" fill="#fff" stroke="#2b7bd8" stroke-width="2"/>
+      <text x="14" y="22" class="tooltip-date">June 28, 2025</text>
+      <circle cx="18" cy="40" r="4" fill="#1f6fc2"/>
+      <text x="30" y="45" class="tooltip-text">Search Volume: 134,478</text>
+    </g>
+
+    <g class="legend" transform="translate(400.0,408)">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#1f6fc2" stroke-width="4"/>
+      <text x="32" y="5" class="legend-text">Search Volume</text>
+    </g>
+  </svg>
+</div>
+
+<div class="callout"><strong>判斷：</strong>壓力襪市場不是衰退市場。對新品而言，真正的問題不是「有沒有需求」，而是如何在低價競爭與成熟品牌中找到差異化切入點。</div>
+  </section>
+
+  
+
+
+<section id="competition">
+    <div class="head"><div class="num-badge">03</div><div><h2>競爭格局：市場集中度高，且低價競爭明顯</h2><p class="lead">Amazon 壓力襪自然流量前 100 名商品中，前 5 品牌已貢獻接近一半營收，前 20 品牌貢獻約八成營收。這代表市場存在領導品牌，新品牌若以價格競爭切入，突圍難度高。</p></div></div>
+
+    <div class="keyword-strip">
+      <span class="keyword-chip">品牌集中度高</span>
+      <span class="keyword-chip">低價競爭激烈</span>
+      <span class="keyword-chip">同質化商品眾多</span>
+      <span class="keyword-chip positive-chip">市場接受非本土品牌</span>
+    </div>
+
+
+    <div class="brand-share-block integrated-brand-block">
+      <div class="brand-share-head">
+        <div>
+          <h3>前 20 名品牌營收占比</h3>
+          <p class="muted">前 20 名品牌合計貢獻 82% 營收，其中前 5 名合計約 49%。這顯示自然流量前排營收高度集中，頭部品牌已具備明顯市場優勢。</p>
+        </div>
+      </div>
+
+      <div class="share-stack-card embedded-stack-card">
+        <div class="share-stack-head">
+          <h3>品牌營收集中度</h3>
+          <p class="muted">以前 100 名自然流量商品的品牌營收占比估算。前 5 品牌已取得近半數營收，第 6–20 名品牌再貢獻 33%，其餘品牌合計 18%。</p>
+        </div>
+
+        <div class="share-stack">
+          <div class="share-seg top5" style="width:49%;">
+            <span>前 5 品牌 49%</span>
+          </div>
+          <div class="share-seg top20" style="width:33%;">
+            <span>第 6–20 名 33%</span>
+          </div>
+          <div class="share-seg others" style="width:18%;">
+            <span>其他品牌 18%</span>
+          </div>
+        </div>
+
+        <div class="share-legend">
+          <span><i class="swatch top5"></i>前 5 品牌</span>
+          <span><i class="swatch top20"></i>第 6–20 名品牌</span>
+          <span><i class="swatch others"></i>其他品牌</span>
+        </div>
+      </div>
+
+      <table class="brand-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Brand</th>
+            <th>營收占比</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="top-five"><td>1</td><td>CHARMKING</td><td>15.24%</td></tr>
+<tr class="top-five"><td>2</td><td>FITRELL</td><td>9.60%</td></tr>
+<tr class="top-five"><td>3</td><td>LEVSOX</td><td>9.51%</td></tr>
+<tr class="top-five"><td>4</td><td>fenglaoda</td><td>7.91%</td></tr>
+<tr class="top-five"><td>5</td><td>Physix Gear Sport</td><td>7.17%</td></tr>
+<tr class=""><td>6</td><td>FuelMeFoot</td><td>4.22%</td></tr>
+<tr class=""><td>7</td><td>Iseasoo</td><td>3.76%</td></tr>
+<tr class=""><td>8</td><td>Sooverki</td><td>3.35%</td></tr>
+<tr class=""><td>9</td><td>Laite Hebe</td><td>3.32%</td></tr>
+<tr class=""><td>10</td><td>Dr. Scholl's</td><td>2.57%</td></tr>
+<tr class=""><td>11</td><td>SB SOX</td><td>2.35%</td></tr>
+<tr class=""><td>12</td><td>BLUEENJOY</td><td>2.09%</td></tr>
+<tr class=""><td>13</td><td>ABSOLUTE SUPPORT</td><td>2.05%</td></tr>
+<tr class=""><td>14</td><td>CS CELERSPORT</td><td>1.36%</td></tr>
+<tr class=""><td>15</td><td>COOLOVER</td><td>1.29%</td></tr>
+<tr class=""><td>16</td><td>Comrad</td><td>1.26%</td></tr>
+<tr class=""><td>17</td><td>Dickies</td><td>1.20%</td></tr>
+<tr class=""><td>18</td><td>NEWZILL</td><td>1.13%</td></tr>
+<tr class=""><td>19</td><td>Double Couple</td><td>1.12%</td></tr>
+<tr class=""><td>20</td><td>Saniripple</td><td>1.06%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stack-pair">
+      <div class="share-stack-card">
+        <div class="share-stack-head">
+          <h3>賣家年齡結構</h3>
+          <p class="muted">經營 3 年以上的賣家占 53%，顯示市場由資深賣家主導；1 年以下與 1–2 年賣家合計 31%，代表市場仍有新進入者，但若希望在此品類中穩定經營，需有至少 3 年時間逐步站穩腳跟的心理準備。</p>
+        </div>
+
+        <div class="share-stack">
+          <div class="share-seg age1" style="width:17%;"><span>1 年以下 17%</span></div>
+          <div class="share-seg age2" style="width:14%;"><span>1–2 年 14%</span></div>
+          <div class="share-seg age3" style="width:16%;"><span>2–3 年 16%</span></div>
+          <div class="share-seg age4" style="width:53%;"><span>3 年以上 53%</span></div>
+        </div>
+
+        <div class="share-legend">
+          <span><i class="swatch age1"></i>1 年以下</span>
+          <span><i class="swatch age2"></i>1–2 年</span>
+          <span><i class="swatch age3"></i>2–3 年</span>
+          <span><i class="swatch age4"></i>3 年以上</span>
+        </div>
+      </div>
+
+      <div class="share-stack-card">
+        <div class="share-stack-head">
+          <h3>賣家國家結構</h3>
+          <p class="muted">中國賣家占 62%，是亞馬遜壓力襪市場最大的賣家來源國，代表此品類具有明顯的低價競爭壓力與同質化風險。另一方面，美國占 18%、亞馬遜占 13%，其餘國家合計 7%，顯示市場並非只接受本土品牌，非本土品牌仍有機會取得市場份額。</p>
+        </div>
+
+        <div class="share-stack">
+          <div class="share-seg country-cn" style="width:62%;"><span>中國 62%</span></div>
+          <div class="share-seg country-us" style="width:18%;"><span>美國 18%</span></div>
+          <div class="share-seg country-amz" style="width:13%;"><span>亞馬遜 13%</span></div>
+          <div class="share-seg country-oth" style="width:7%;"><span>其他 7%</span></div>
+        </div>
+
+        <div class="share-legend">
+          <span><i class="swatch country-cn"></i>中國</span>
+          <span><i class="swatch country-us"></i>美國</span>
+          <span><i class="swatch country-amz"></i>亞馬遜</span>
+          <span><i class="swatch country-oth"></i>其他（台灣、香港、英國、愛沙尼亞、加拿大、N/A）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout"><strong>策略含義：</strong>新品牌不宜用低價策略與成熟賣家正面競爭，應改用「設計差異化、品牌故事與材質質感」建立進入理由。</div>
+  </section>
+
+
+
+  
+<section class="white" id="positioning">
+    <div class="head"><div class="num-badge">04</div><div><h2>價格與定位：高價不是問題，問題是高價理由是否清楚</h2><p class="lead">自然流量前 100 名暢銷商品中，低價格帶占比最高。這表示高單價產品若要進入 Amazon，不能只把自己放進一般壓力襪邏輯，而必須明確說明高價背後的設計、材質或品牌價值。</p></div></div>
+
+    <div class="price-chart-card">
+      <div class="price-chart-head">
+        <div>
+          <h3>市場主流價格帶分布</h3>
+          <p class="muted">以自然流量前 100 名商品為樣本，$0–10 價格帶占 71%，仍為市場主流；$10–20 占 20%，$20+ 僅占 9%。</p>
+        </div>
+      </div>
+
+      <div class="price-bar-chart">
+        <div class="vbar-item">
+          <div class="vbar-wrap">
+            <div class="vbar bar-low" style="height:71%;">
+              <span>71%</span>
+            </div>
+          </div>
+          <div class="vbar-label">$0–10</div>
+          <div class="vbar-note">低價帶商品</div>
+        </div>
+
+        <div class="vbar-item">
+          <div class="vbar-wrap">
+            <div class="vbar bar-mid" style="height:20%;">
+              <span>20%</span>
+            </div>
+          </div>
+          <div class="vbar-label">$10–20</div>
+          <div class="vbar-note">中價帶商品</div>
+        </div>
+
+        <div class="vbar-item">
+          <div class="vbar-wrap">
+            <div class="vbar bar-high" style="height:9%;">
+              <span>9%</span>
+            </div>
+          </div>
+          <div class="vbar-label">$20+</div>
+          <div class="vbar-note">高價帶商品</div>
+        </div>
+      </div>
+
+      <div class="price-chart-insight">
+        <strong>解讀：</strong>
+        市場銷售主力仍集中於低價帶，高價帶屬於相對小眾市場。若產品價格明顯高於市場主流，便需要用更清楚的差異化定位來支撐消費者的購買理由。
+      </div>
+    </div>
+
+    <div class="narrative-block">
+      <h3>高價定位的故事脈絡</h3>
+      <p>
+        目標品牌 的價格明顯高於市場主流價格帶，但也正因為市場上充斥著低價、同質化產品，
+        高價本身若能與「潮流設計」和「品牌故事」結合，反而有機會建立鮮明差異化，
+        吸引追求獨特性與品質感的消費者。
+      </p>
+      <p>
+        因此，產品圖片與影片必須充分展示潮流設計的獨特性與高品質質感，讓消費者感受到物有所值；
+        同時在廣告投放與 Listing 頁面中，需持續說明高價的具體理由，例如高端材質、精湛工藝、
+        設計師背景與設計理念，讓產品不只是一般功能型壓力襪，而是具備風格與辨識度的品牌商品。
+      </p>
+      <div class="pill-row">
+        <span class="pill">高端材質</span>
+        <span class="pill">精湛工藝</span>
+        <span class="pill">設計師品牌</span>
+        <span class="pill">潮流設計</span>
+        <span class="pill">時尚</span>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:18px;">
+      <div class="card"><div class="metric-title">高價合理化 01</div><div class="metric-value">設計感</div><p class="muted">圖片、影片與 A+ Content 必須讓消費者感受到潮流與質感，支撐高價定位。</p></div>
+      <div class="card"><div class="metric-title">高價合理化 02</div><div class="metric-value">材質功能</div><p class="muted">需明確解釋特殊材質、除臭或舒適度等差異化利益，例如銀纖維、銅纖維或特殊編織技術。</p></div>
+      <div class="card"><div class="metric-title">高價合理化 03</div><div class="metric-value">品牌故事</div><p class="muted">以設計師背景、設計理念與時尚敘事建立辨識度，讓產品更像風格配件，而非普通壓力襪。</p></div>
+    </div>
+  </section>
+
+
+  
+  
+  <section id="keywords">
+    <div class="head">
+      <div class="num-badge">05</div>
+      <div>
+        <h2>Listing 關鍵字策略：標題決定搜尋收錄與廣告效率</h2>
+        <p class="lead">
+          Amazon Listing 標題不只是商品命名，也會影響關鍵字收錄、自然搜尋曝光與廣告投放效率。
+          本分析基於自然流量前 100 名壓力襪商品標題，將高頻關鍵字拆解為產品定義、產品款式、產品功能、受眾與用途五大類，
+          用來判斷新品上架時應優先布局哪些詞彙。
+        </p>
+      </div>
+    </div>
+
+    <div class="keyword-strategy-grid">
+      <div class="keyword-card primary">
+        <div class="metric-title">標題核心任務</div>
+        <div class="metric-value">Indexing</div>
+        <p class="muted">標題需包含 Amazon 能辨識並收錄的核心產品詞，否則會影響自然搜尋與廣告觸發機會。</p>
+      </div>
+      <div class="keyword-card">
+        <div class="metric-title">廣告效率</div>
+        <div class="metric-value">Relevance</div>
+        <p class="muted">標題與廣告關鍵字越一致，越有助於提升投放相關性，降低無效曝光。</p>
+      </div>
+      <div class="keyword-card">
+        <div class="metric-title">轉化溝通</div>
+        <div class="metric-value">Intent</div>
+        <p class="muted">標題需同時回應消費者搜尋意圖，例如功能、用途、受眾與穿戴情境。</p>
+      </div>
+    </div>
+
+    <div class="keyword-table-block">
+      <h3>Top 100 標題關鍵字使用率總覽</h3>
+      <p class="muted">
+        下表整理自然流量前 100 名商品標題中的高頻詞。使用率越高，代表該詞越接近市場主流認知；
+        使用率較低但與產品差異化高度相關的詞，則可作為廣告測試或 Bullet Points 的補充溝通方向。
+      </p>
+
+      <table class="keyword-table">
+        <thead><tr><th>分類</th><th>標題使用關鍵字</th><th>使用率</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="5">產品定義</td><td>socks / stockings</td><td>100%</td></tr>
+          <tr><td>socks</td><td>95%</td></tr>
+          <tr><td>pair / pack</td><td>61%</td></tr>
+          <tr><td>mmHg</td><td>55%</td></tr>
+          <tr><td>stockings</td><td>16%</td></tr>
+          <tr><td rowspan="3">產品款式</td><td>knee</td><td>43%</td></tr>
+          <tr><td>wide / large / 3X</td><td>17%</td></tr>
+          <tr><td>calf</td><td>16%</td></tr>
+          <tr><td rowspan="8">產品功能</td><td>support</td><td>52%</td></tr>
+          <tr><td>circulation</td><td>40%</td></tr>
+          <tr><td>graduate</td><td>16%</td></tr>
+          <tr><td>copper</td><td>12%</td></tr>
+          <tr><td>medical</td><td>11%</td></tr>
+          <tr><td>comfort</td><td>7%</td></tr>
+          <tr><td>relief</td><td>5%</td></tr>
+          <tr><td>toe</td><td>2%</td></tr>
+          <tr><td rowspan="2">受眾</td><td>nurse / nursing</td><td>35%</td></tr>
+          <tr><td>pregnancy</td><td>7%</td></tr>
+          <tr><td rowspan="6">用途</td><td>running</td><td>47%</td></tr>
+          <tr><td>travel</td><td>35%</td></tr>
+          <tr><td>athletic</td><td>32%</td></tr>
+          <tr><td>sport</td><td>13%</td></tr>
+          <tr><td>hiking</td><td>11%</td></tr>
+          <tr><td>cycling</td><td>9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="keyword-analysis-grid">
+      <div class="keyword-insight">
+        <h3>產品定義：標題必須包含 socks</h3>
+        <p>
+          壓力襪商品標題幾乎一定會包含 socks 或 stockings，用來讓 Amazon 與消費者明確辨識商品類型。
+          由於標題空間有限，實務上需在 socks 與 stockings 之間擇一作為主要產品詞；進一步比較使用率後可發現，
+          socks 出現在 95% 暢銷品標題中，明顯是市場主流，因此新品標題應優先使用 socks 以確保基礎收錄。
+        </p>
+        <div class="pill-row">
+          <span class="pill">socks / stockings 100%</span>
+          <span class="pill">socks 95%</span>
+          <span class="pill">stockings 16%</span>
+        </div>
+      </div>
+
+      <div class="keyword-insight">
+        <h3>產品款式：knee 是主流，calf 可作測試</h3>
+        <p>
+          43% 暢銷品標題使用 knee，代表及膝款式是市場主流語言；calf 使用率為 16%，屬於較精準但規模較小的需求。
+          若產品具備可翻轉穿戴特性，可在標題、圖片或 A/B 測試中比較 knee 與 calf 的轉化效果。
+        </p>
+        <div class="pill-row">
+          <span class="pill">knee 43%</span>
+          <span class="pill">calf 16%</span>
+          <span class="pill">wide / large / 3X 17%</span>
+        </div>
+      </div>
+
+      <div class="keyword-insight">
+        <h3>產品功能：support 與 circulation 是核心利益</h3>
+        <p>
+          support 使用率 52%，circulation 使用率 40%，是壓力襪標題中最常見的功能利益。
+          若產品具有除臭或特殊材質，建議放入 Bullet Points 或 A+ Content 測試。
+        </p>
+        <div class="pill-row">
+          <span class="pill">support 52%</span>
+          <span class="pill">circulation 40%</span>
+          <span class="pill">copper 12%</span>
+        </div>
+      </div>
+
+      <div class="keyword-insight">
+        <h3>受眾與用途：主流流量與細分轉化需分層布局</h3>
+        <p>
+          running、travel、athletic 是主流用途詞，適合用於標題或廣告核心投放；
+          nurse 則代表明確受眾需求。hiking、cycling 雖使用率較低，但可作為細分情境投放測試。
+        </p>
+        <div class="pill-row">
+          <span class="pill">running 47%</span>
+          <span class="pill">travel 35%</span>
+          <span class="pill">athletic 32%</span>
+          <span class="pill">nurse 35%</span>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="spec-strategy-block">
+      <div class="spec-head">
+        <h3>壓力等級與商品數量：用主流認知降低理解成本</h3>
+        <p>
+          產品標題除了核心關鍵字，也需要決定是否標註壓力等級與商品數量。這兩類資訊會影響消費者對產品規格的理解，
+          但也會佔用標題空間，因此需要根據市場慣例判斷哪些資訊值得放在標題中。
+        </p>
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-card">
+          <h3>壓力等級：使用市場主流 mmHg 表達</h3>
+          <p>
+            在 Top 100 暢銷商品中，有 55 個商品在標題中標註 mmHg，因此下方壓力範圍分布的分母為 55，而不是 100。
+            在這 55 個商品中，15–20 mmHg 與 20–30 mmHg 是最主流的兩種表達方式；若產品規格可對應主流市場認知，
+            標題應避免使用過於少見的壓力範圍，降低消費者理解成本。
+          </p>
+
+          <div class="mmhg-chart-card embedded">
+            <h4>標題標註 mmHg 商品之壓力範圍分布</h4>
+            <p class="muted">分母：Top 100 中有標註 mmHg 的 55 個商品</p>
+            <div class="mmhg-bars">
+              <div class="mmhg-row"><div class="mmhg-label">15–20</div><div class="mmhg-track"><div class="mmhg-fill" style="width:51%;">51%</div></div></div>
+              <div class="mmhg-row"><div class="mmhg-label">20–30</div><div class="mmhg-track"><div class="mmhg-fill secondary" style="width:42%;">42%</div></div></div>
+              <div class="mmhg-row"><div class="mmhg-label">8–15</div><div class="mmhg-track"><div class="mmhg-fill minor" style="width:2%;">2%</div></div></div>
+              <div class="mmhg-row"><div class="mmhg-label">10–14</div><div class="mmhg-track"><div class="mmhg-fill minor" style="width:2%;">2%</div></div></div>
+              <div class="mmhg-row"><div class="mmhg-label">18</div><div class="mmhg-track"><div class="mmhg-fill minor" style="width:2%;">2%</div></div></div>
+              <div class="mmhg-row"><div class="mmhg-label">30–40</div><div class="mmhg-track"><div class="mmhg-fill minor" style="width:2%;">2%</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <h3>商品數量：單雙商品不一定要在標題標示數量</h3>
+          <p>
+            暢銷品的販售數量以 1 雙與 3 雙最常見，分別占 29% 與 25%。進一步觀察 29 個販售 1 雙的商品，
+            有 25 個沒有在標題中標示「1 pair」或類似數量資訊，僅 4 個有標示。這代表單雙商品的「數量」通常不是標題中的必要資訊；
+            對單雙產品而言，標題空間更應優先留給產品詞、壓力等級、功能利益與用途情境。
+          </p>
+
+          <div class="pair-grid">
+            <div class="pair-card">
+              <h4>Pairs Count 分布</h4>
+              <div class="pair-bars">
+                <div class="pair-row"><div class="pair-label">1 雙</div><div class="pair-track"><div class="pair-fill" style="width:29%;">29%</div></div></div>
+                <div class="pair-row"><div class="pair-label">2 雙</div><div class="pair-track"><div class="pair-fill alt" style="width:9%;">9%</div></div></div>
+                <div class="pair-row"><div class="pair-label">3 雙</div><div class="pair-track"><div class="pair-fill" style="width:25%;">25%</div></div></div>
+                <div class="pair-row"><div class="pair-label">4 雙</div><div class="pair-track"><div class="pair-fill alt" style="width:12%;">12%</div></div></div>
+                <div class="pair-row"><div class="pair-label">6 雙</div><div class="pair-track"><div class="pair-fill alt" style="width:15%;">15%</div></div></div>
+                <div class="pair-row"><div class="pair-label">7 雙</div><div class="pair-track"><div class="pair-fill minor" style="width:2%;">2%</div></div></div>
+                <div class="pair-row"><div class="pair-label">8 雙</div><div class="pair-track"><div class="pair-fill alt" style="width:8%;">8%</div></div></div>
+              </div>
+            </div>
+
+            <div class="pair-card">
+              <h4>1 雙商品是否在標題標示數量</h4>
+              <p class="muted">分母：販售 1 雙的 29 個商品</p>
+              <div class="one-pair-stack">
+                <div class="one-pair-seg no-label" style="width:86%;">未標示 25</div>
+                <div class="one-pair-seg has-label" style="width:14%;">有標示 4</div>
+              </div>
+              <div class="spec-insight">
+                <strong>Insight：</strong>
+                若目標品牌主推單雙產品，標題不一定需要標示「1 pair」；可將標題空間優先配置給更能影響搜尋收錄與轉化的關鍵字。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="keyword-insight highlight listing-rec">
+      <h3>Listing 建議</h3>
+      <p>
+        標題應優先放入 socks、mmHg、knee / calf、support、circulation 等核心詞；壓力等級建議使用市場主流的 15–20 mmHg 或 20–30 mmHg，避免使用自訂區間或僅標示單一數值，以降低消費者理解成本。若商品僅販售單包裝，則不需在標題中特別標示「1 雙」，可將標題空間保留給更能影響搜尋收錄與轉化的關鍵字。Bullet Points 與圖片則負責補充高價理由，例如設計感、特殊材質、除臭機能與穿搭場景。
+      </p>
+    </div>
+  </section>
+
+
+
+  <section class="white" id="category">
+    <div class="head"><div class="num-badge">06</div><div><h2>品類選擇：不只看 BSR 難度，也要看品類市場規模</h2><p class="lead">分析比較了「Compression Calf Socks」與「Compression Knee-High Socks」兩個子品類。雖然小品類看似較容易提升排名，但若市場規模較小且頭部壟斷更強，新品反而難以取得足夠營收空間。</p></div></div>
+    <div class="grid-2">
+      <div class="card"><div class="metric-title">Compression Calf Socks</div><div class="metric-value negative">Top 5 = 78%</div><p class="muted">頭部集中度高，且排名後段商品營收有限，新品若不能進入前排，市場潛力較受限。</p></div>
+      <div class="card"><div class="metric-title">Compression Knee-High Socks</div><div class="metric-value positive">Top 5 = 55%</div><p class="muted">市場規模較大，壟斷程度相對低，更適合作為主打品類。</p></div>
+    </div>
+    <div class="callout"><strong>建議：</strong>以「Compression Knee-High Socks」作為主打品類，並在 Listing 中兼顧 knee 與 calf 描述，利用產品可翻轉穿戴的特性覆蓋兩種需求。</div>
+  </section>
+
+  
+  
+<section id="unit-economics">
+    <div class="head"><div class="num-badge">07</div><div><h2>成本與利潤：確認高單價產品是否具備上架可行性</h2><p class="lead">除了市場需求與定位，本分析也拆解 Amazon 上架後可能面臨的成本結構，包含平台銷售傭金、FBA 履約與入庫配置費、倉儲等平台相關費用、製造成本與廣告費用，確認高單價是否能支撐合理利潤空間。</p></div></div>
+    <div class="grid-3">
+      <div class="card"><div class="metric-title">Amazon Referral Fee</div><div class="metric-value">17%</div><p class="muted">高於 $20 的服飾產品需評估平台抽成對利潤的影響。</p></div>
+      <div class="card"><div class="metric-title">FBA + 入庫配置成本</div><div class="metric-value">約 15%</div><p class="muted">依包裝體積與重量估算，FBA 履約、入庫配置、倉儲與其他 Amazon 平台相關費用合計約占售價 15%。</p></div>
+      <div class="card"><div class="metric-title">製造成本假設</div><div class="metric-value">約 15%</div><p class="muted">以常見 $5 美金製造成本、$35 美金售價估算，製造成本約占售價 14%–15%。</p></div>
+      <div class="card"><div class="metric-title">廣告費用假設</div><div class="metric-value">約 25%</div><p class="muted">新品上架初期需保留較高廣告費用，用於累積曝光、點擊與前期轉化。</p></div>
+      <div class="card"><div class="metric-title">Estimated Profit Space</div><div class="metric-value positive">約 28%</div><p class="muted">扣除平台抽成、FBA 與入庫配置成本、製造成本及廣告費用後，仍約有 28% 利潤空間。</p></div>
+      <div class="card"><div class="metric-title">獲利判斷</div><div class="metric-value positive">可行</div><p class="muted">高單價若能被設計、材質與品牌故事合理化，仍具備上架與投放空間。</p></div>
+    </div>
+    <div class="callout"><strong>成本與利潤假設：</strong>以 $35 美金售價估算，平台銷售傭金約占 17%，FBA 履約、入庫配置、倉儲與其他平台相關費用約占 15%；若再以常見 $5 美金製造成本估算（約占售價 15%），並預留約 25% 廣告費用，整體仍約有 28% 的利潤空間。</div>
+    <div class="callout"><strong>提醒：</strong>成本模型為上架前初估，正式上架前仍需依實際包裝重量、尺寸、倉儲費率、入庫配置方式、廣告效率與 Amazon 最新費率重新校正。</div>
+  </section>
+
+
+  <section class="white" id="recommendation">
+    <div class="head"><div class="num-badge">08</div><div><h2>最終建議：可以進入，但不能用低價壓力襪邏輯進入</h2><p class="lead">綜合需求、競爭、價格、關鍵字、品類與成本結構分析，該產品具備進入 Amazon 的機會。但若只以一般低價壓力襪的邏輯上架，將容易被成熟賣家與低價商品淹沒。</p></div></div>
+    <div class="grid-3">
+      <div class="card"><div class="metric-title">Positioning</div><div class="metric-value">差異化</div><p class="muted">主打設計感、材質功能與品牌故事，而非低價。</p></div>
+      <div class="card"><div class="metric-title">Listing</div><div class="metric-value">SEO + 敘事</div><p class="muted">標題使用核心搜尋詞，圖片與 BP 強化高價理由。</p></div>
+      <div class="card"><div class="metric-title">Category</div><div class="metric-value">主流品類</div><p class="muted">選擇市場較大且壟斷程度較低的子品類切入。</p></div>
+    </div>
+    <div class="quote">核心結論：本報告的目的，是在目標品牌正式進入 Amazon 市場前，先以市場需求、競爭格局、價格定位、關鍵字策略、品類選擇與成本結構，建立一套完整的上架前決策依據。對當時新成立的 Amazon 廣告代操 BU 而言，這份分析不只是內部評估工具，也能協助客戶理解團隊具備市場研究、Listing 策略與商業判斷能力，進而提高客戶將廣告代操交給團隊執行的信任感。</div>
+  </section>
+
+  <footer class="footer">去識別化作品集案例｜品牌與產品細節已以「高單價設計型壓力襪產品」方式呈現；數據用於展示分析方法與商業決策邏輯。</footer>
+</main>
+</body>
+</html>
